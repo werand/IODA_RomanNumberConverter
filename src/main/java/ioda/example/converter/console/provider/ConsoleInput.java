@@ -8,7 +8,7 @@ public class ConsoleInput implements InputProvider {
 
 	@Override
 	public String readNumberToConvert() {
-		System.out.print("Arabische oder römische Zahl eingeben: ");
+		System.out.print("Arabische oder rÃ¶mische Zahl eingeben: ");
 		try (Scanner scanner = new Scanner(System.in)) {
 			return scanner.nextLine();
 		}

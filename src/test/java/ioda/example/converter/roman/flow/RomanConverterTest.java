@@ -33,21 +33,21 @@ public class RomanConverterTest {
 	public void abc_results_in_error() { 
 		RomanConverter.convert("abc", 
 				Assert::fail,
-				(error) -> Assert.assertEquals("Es handelt sich nicht um eine rˆmische Zahl! abc", error));
+				(error) -> Assert.assertEquals("Es handelt sich nicht um eine r√∂mische Zahl! abc", error));
 	}
 
 	@Test
 	public void groesser_3000_results_in_error() { 
 		RomanConverter.convert("3001", 
 				Assert::fail,
-				(error) -> Assert.assertEquals("Ung¸ltiger Wertebereich, Wert muss zwischen 0 und 3001 liegen: 3001", error));
+				(error) -> Assert.assertEquals("Ung√ºltiger Wertebereich, Wert muss zwischen 0 und 3001 liegen: 3001", error));
 	}
 
 	@Test
 	public void gleich_0_results_in_error() { 
 		RomanConverter.convert("0", 
 				Assert::fail,
-				(error) -> Assert.assertEquals("Ung¸ltiger Wertebereich, Wert muss zwischen 0 und 3001 liegen: 0", error));
+				(error) -> Assert.assertEquals("Ung√ºltiger Wertebereich, Wert muss zwischen 0 und 3001 liegen: 0", error));
 	}
 
 	private Consumer<String> assertEquals(String expected) {

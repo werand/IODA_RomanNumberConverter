@@ -23,7 +23,7 @@ public class RomanConversions {
 		if (romanNumber.toUpperCase().matches("^[IVXLCDM]+$")) {
 			onValid.convert();
 		} else {
-			onError.accept("Es handelt sich nicht um eine römische Zahl! " + romanNumber);
+			onError.accept("Es handelt sich nicht um eine rÃ¶mische Zahl! " + romanNumber);
 		}
 	}
 
@@ -31,7 +31,7 @@ public class RomanConversions {
 		if (arabicNumber > 0 && arabicNumber <= 3000) {
 			onValid.convert();
 		} else {
-			onError.accept("Ungültiger Wertebereich, Wert muss zwischen 0 und 3001 liegen: " + arabicNumber);
+			onError.accept("UngÃ¼ltiger Wertebereich, Wert muss zwischen 0 und 3001 liegen: " + arabicNumber);
 		}
 	} 
 
