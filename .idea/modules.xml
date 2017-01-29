@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/FlowDesign_RomanNumerConverter.iml" filepath="$PROJECT_DIR$/.idea/modules/FlowDesign_RomanNumerConverter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/FlowDesign_RomanNumerConverter_main.iml" filepath="$PROJECT_DIR$/.idea/modules/FlowDesign_RomanNumerConverter_main.iml" group="FlowDesign_RomanNumerConverter" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/FlowDesign_RomanNumerConverter_test.iml" filepath="$PROJECT_DIR$/.idea/modules/FlowDesign_RomanNumerConverter_test.iml" group="FlowDesign_RomanNumerConverter" />
+    </modules>
+  </component>
+</project>
