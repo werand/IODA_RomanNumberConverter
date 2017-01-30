@@ -19,12 +19,8 @@ repositories {
 }
 
 dependencies {
-    // The production code uses Guava
-    compile 'com.google.guava:guava:20.0'
-
 	compile group: 'com.jnape.palatable', name: 'lambda', version: '1.5.4'
 
     // Use JUnit test framework
     testCompile 'junit:junit:4.12'
 }
-
