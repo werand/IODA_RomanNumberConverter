@@ -1,6 +1,6 @@
 package ioda.example.converter.contract;
 
-import java.util.function.Consumer;
+import com.jnape.palatable.lambda.adt.Either;
 
 /**
  * Body: This class represents the overall functionality - but without the interaction with 
@@ -8,6 +8,6 @@ import java.util.function.Consumer;
  */
 public interface ConverterBody {
 
-	void convert(String number, Consumer<String> onSuccess, Consumer<String> onError);
+	Either<Error, String> convert(String number);
 
 }

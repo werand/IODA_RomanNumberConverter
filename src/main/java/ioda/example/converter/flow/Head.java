@@ -22,7 +22,9 @@ public class Head {
 	
 	public void execute() {
 		String input = inputProvider.readNumberToConvert();
-		this.converterBody.convert(input, outputProvider::displayResult, outputProvider::displayError);
+		this.converterBody.convert(input).peek(
+				outputProvider::displayError,
+				outputProvider::displayResult);
 	}
 
 }

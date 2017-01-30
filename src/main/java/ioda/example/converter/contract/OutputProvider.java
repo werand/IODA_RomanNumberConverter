@@ -4,6 +4,6 @@ public interface OutputProvider {
 
 	void displayResult(String result);
 
-	void displayError(String error);
+	void displayError(Error error);
 
 }

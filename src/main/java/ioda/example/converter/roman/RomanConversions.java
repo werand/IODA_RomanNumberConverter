@@ -1,8 +1,12 @@
 package ioda.example.converter.roman;
-import java.util.function.Consumer;
+import static com.jnape.palatable.lambda.adt.Either.left;
+import static com.jnape.palatable.lambda.adt.Either.right;
+import static ioda.example.converter.NumberParser.tryParse;
 
-import ioda.example.converter.Conversion;
+import com.jnape.palatable.lambda.adt.Either;
+
 import ioda.example.converter.NumberParser;
+import ioda.example.converter.contract.Error;
 
 /**
  * RomanConversions: This class belongs to the coarse grained domain aspect of the application. 
@@ -10,29 +14,30 @@ import ioda.example.converter.NumberParser;
  */
 public class RomanConversions {
 
-	public static void determineNumberType(String number, Consumer<String> roman, Consumer<Integer> arabic) {
-		NumberParser tryParse = NumberParser.tryParse(number);
+	public static Either<Integer, String> determineNumberType(String number) {
+		NumberParser tryParse = tryParse(number);
 		if (tryParse.isNumber) {
-			arabic.accept(tryParse.number);
+			return left(tryParse.number);
 		} else {
-			roman.accept(number);
+			return right(number);
 		}
 	}
 	
-	public static void validateRomanNumber(String romanNumber, Conversion onValid, Consumer<String> onError) {
+	public static Either<Error, String> validateRomanNumber(String romanNumber) {
 		if (romanNumber.toUpperCase().matches("^[IVXLCDM]+$")) {
-			onValid.convert();
+			return right(romanNumber);
 		} else {
-			onError.accept("Es handelt sich nicht um eine römische Zahl! " + romanNumber);
+			return left(new Error("Es handelt sich nicht um eine römische Zahl! " + romanNumber));
 		}
 	}
 
-	public static void validateArabicNumber(Integer arabicNumber, Conversion onValid, Consumer<String> onError) {
+
+	public static Either<Error, Integer> validateArabicNumber(Integer arabicNumber) {
 		if (arabicNumber > 0 && arabicNumber <= 3000) {
-			onValid.convert();
+			return right(arabicNumber);
 		} else {
-			onError.accept("Ungültiger Wertebereich, Wert muss zwischen 0 und 3001 liegen: " + arabicNumber);
+		    return left(new Error("Ungültiger Wertebereich, Wert muss zwischen 0 und 3001 liegen: " + arabicNumber));
 		}
-	} 
+	}
 
 }

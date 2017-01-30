@@ -1,5 +1,6 @@
 package ioda.example.converter.console.provider;
 
+import ioda.example.converter.contract.Error;
 import ioda.example.converter.contract.OutputProvider;
 
 public class ConsoleOutput implements OutputProvider {
@@ -10,7 +11,7 @@ public class ConsoleOutput implements OutputProvider {
 	}
 
 	@Override
-	public void displayError(String error) {
-		System.out.println(error);
+	public void displayError(Error error) {
+		System.out.println(error.getErrorMessage());
 	}
 }
