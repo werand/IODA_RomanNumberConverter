@@ -5,13 +5,13 @@ import ioda.example.converter.contract.OutputProvider;
 
 public class ConsoleOutput implements OutputProvider {
 
-	@Override
-	public void displayResult(String result) {
-		System.out.println(result);
-	}
+    @Override
+    public void displayResult(String result) {
+        System.out.println(result);
+    }
 
-	@Override
-	public void displayError(Error error) {
-		System.out.println(error.getErrorMessage());
-	}
+    @Override
+    public void displayError(Error error) {
+        System.out.println(error.getErrorMessage());
+    }
 }

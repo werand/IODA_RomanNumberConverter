@@ -11,21 +11,21 @@ import ioda.example.converter.roman.ToRomanConversion;
 
 public class RomanConverter {
 
-	public static Either<Error, String> convert(String number) {
-		return RomanConversions.determineNumberType(number)
-				.match(arabicNumber -> validateAndConvertArabicNumber(arabicNumber),
-						romanNumber -> validateAndConvertRomanNumber(romanNumber));
-	}
+    public static Either<Error, String> convert(String number) {
+        return RomanConversions.determineNumberType(number)
+                .match(arabicNumber -> validateAndConvertArabicNumber(arabicNumber),
+                       romanNumber -> validateAndConvertRomanNumber(romanNumber));
+    }
 
-	private static Either<Error, String> validateAndConvertRomanNumber(String romanNumber) {
-		return RomanConversions.validateRomanNumber(romanNumber)
-				.match(error -> left(error),
-					   number -> right(FromRomanConversion.convert(number)));
-	}
+    private static Either<Error, String> validateAndConvertRomanNumber(String romanNumber) {
+        return RomanConversions.validateRomanNumber(romanNumber)
+                .match(error -> left(error),
+                       number -> right(FromRomanConversion.convert(number)));
+    }
 
-	private static Either<Error, String> validateAndConvertArabicNumber(Integer arabicNumber) {
-		return RomanConversions.validateArabicNumber(arabicNumber)
-				.match(error -> left(error),
-                        number -> right(ToRomanConversion.convert(number)));
-	}
+    private static Either<Error, String> validateAndConvertArabicNumber(Integer arabicNumber) {
+        return RomanConversions.validateArabicNumber(arabicNumber)
+                .match(error -> left(error),
+                       number -> right(ToRomanConversion.convert(number)));
+    }
 }
