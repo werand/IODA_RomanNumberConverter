@@ -1,11 +1,9 @@
 package ioda.example.converter.roman;
 import static com.jnape.palatable.lambda.adt.Either.left;
 import static com.jnape.palatable.lambda.adt.Either.right;
-import static ioda.example.converter.NumberParser.tryParse;
 
 import com.jnape.palatable.lambda.adt.Either;
 
-import ioda.example.converter.NumberParser;
 import ioda.example.converter.contract.Error;
 
 /**
@@ -14,13 +12,10 @@ import ioda.example.converter.contract.Error;
  */
 public class RomanConversions {
 
-    public static Either<Integer, String> determineNumberType(String number) {
-        NumberParser tryParse = tryParse(number);
-        if (tryParse.isNumber) {
-            return left(tryParse.number);
-        } else {
-            return right(number);
-        }
+    public static Either<String, Integer> determineNumberType(String number) {
+        return Either.trying(
+                () -> Integer.valueOf(Integer.parseInt(number)),
+                inCaseOfException -> number);
     }
 
     public static Either<Error, String> validateRomanNumber(String romanNumber) {

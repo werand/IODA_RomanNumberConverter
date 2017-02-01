@@ -13,8 +13,8 @@ public class RomanConverter {
 
     public static Either<Error, String> convert(String number) {
         return RomanConversions.determineNumberType(number)
-                .match(arabicNumber -> validateAndConvertArabicNumber(arabicNumber),
-                       romanNumber -> validateAndConvertRomanNumber(romanNumber));
+                .match(romanNumber -> validateAndConvertRomanNumber(romanNumber),
+                       arabicNumber -> validateAndConvertArabicNumber(arabicNumber));
     }
 
     private static Either<Error, String> validateAndConvertRomanNumber(String romanNumber) {
